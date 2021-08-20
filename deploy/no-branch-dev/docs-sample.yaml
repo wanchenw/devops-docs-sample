@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -28,7 +28,7 @@ spec:
           value: js|html
         - name: CACHE_PUBLIC_EXPIRATION
           value: 3d
-        image: $DOCKERHUB_NAMESPACE/$APP_NAME:SNAPSHOT-CRON-BUILD-$BUILD_NUMBER
+        image: $HARBOR_NAMESPACE/$APP_NAME:SNAPSHOT-CRON-BUILD-$BUILD_NUMBER
         imagePullPolicy: Always
         name: ks-docs
         ports:
